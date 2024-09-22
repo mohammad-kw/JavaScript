@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="01_apiRequest.css">
+    <title>XML HTTP REQUEST</title>
+</head>
+<body>
+    <div class="card">
+        <h1>Detail Card</h1>
+
+        <img src="" alt="" id="imgage">
+        <p id="bio"></p>
+
+        <button id="get">GET</button>
+    </div>
+</body>
+<script>
+    const url = 'https://api.github.com/users/mohammad-kw'
+
+    document.querySelector('#get').addEventListener('click', item)
+
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', url)
+    xhr.onreadystatechange = function() {
+        console.log(xhr.readyState)
+        if(xhr.readyState === 4) {
+            const data = JSON.parse(this.responseText);
+            //console.log(data)
+            //console.log(data.bio)
+            
+
+        }
+    }
+    const item = xhr.send();
+</script>
+</html>
