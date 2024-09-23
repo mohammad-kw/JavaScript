@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exmaple of Clouser</title>
+</head>
+<body style="background-color: black;">
+    <button id="purple">purple</button>
+    <button id="red">red</button>
+</body>
+<script>
+
+    // ---> old style or not practical style
+
+
+        //document.getElementById("purple").onclick = function() {
+        //     document.body.style.backgroundColor = 'purple'
+        // }
+        // document.getElementById("red").onclick = function() {
+        //     document.body.style.backgroundColor = 'red'
+        // }
+
+
+    // ---> using clouser
+
+        // here we are giving the function reference not the function
+
+            //function clickHandler(color) {
+            //     document.body.style.backgroundColor = `${color}`
+            // }
+            
+            // document.getElementById("purple").onclick = clickHandler("purple")
+            // document.getElementById("red").onclick = clickHandler("red")
+
+    // ---> 
+
+
+        function clickHandler(color) {
+            
+            return function() {
+                document.body.style.backgroundColor = `${color}`
+            }
+        }
+
+        document.getElementById("purple").onclick = clickHandler("purple")
+        document.getElementById("red").onclick = clickHandler("red")
+
+</script>
+</html>
